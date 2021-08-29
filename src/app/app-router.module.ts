@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
+
 import { RouterModule, Routes } from '@angular/router';
+
 import { BasicosComponent } from './ventas/pages/basicos/basicos.component';
 import { NumerosComponent } from './ventas/pages/numeros/numeros.component';
 import { NoComunesComponent } from './ventas/pages/no-comunes/no-comunes.component';

@@ -1,1 +1,28 @@
-<p>numeros works!</p>
+<div class="text-layout mt-5">
+    <h2 class="text-4xl">Pipes - Decimal</h2>
+    <p>
+        Pipes para manejar numeros.
+    </p>
+</div>
+<div class="grid">
+    <div class="col-4">
+        <p-card header="Ventas Netas"
+                subheader="del año presente | number">
+        <p>{{ ventasNetas | number }}</p>
+        <p>{{ ventasNetas | number:'1.2-2' }}</p>
+        </p-card>
+    </div>
+
+    <div class="col-4">
+        <p-card header="Ventas Brutas"
+                subheader="del año presente | currency">
+        <p>{{ (ventasNetas + 2000000) | currency: 'MXN':'symbol-narrow':'1.4-4' }}</p>
+        </p-card>
+    </div>
+    <div class="col-4">
+        <p-card header="Ganancia pocentual"
+                subheader="del año presente | percent">
+        <p>{{ porcentaje | percent:'2.2-2' }}</p>
+        </p-card>
+    </div>
+</div>

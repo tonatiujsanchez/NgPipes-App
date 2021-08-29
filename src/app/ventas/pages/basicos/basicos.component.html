@@ -1,1 +1,79 @@
-<p>basicos works!</p>
+<div class="text-layout mt-5">
+    <h2 class="text-4xl">Pipes - Textos</h2>
+    <p>
+        Pipes para manejar textos.
+    </p>
+</div>
+<div class="grid">
+    <div class="col-4">
+        <p-card header="uppercase"
+                [subheader]="nombreUpper">
+            {{ nombreLower | uppercase }}
+        </p-card>
+    </div>
+    <div class="col-4">
+        <p-card header="lowercase"
+            [subheader]="nombreLower">
+            {{ nombreLower | lowercase }}
+        </p-card>
+    </div>
+    <div class="col-4">
+        <p-card header="titlecase"
+            [subheader]="nombreTitle">
+            {{ nombreLower | titlecase }}
+        </p-card>
+    </div>
+</div>
+
+<div class="text-layout mt-5">
+    <h2 class="text-4xl">Pipes - Date | Fecha </h2>
+    <p>
+        Pipes para manejar las fechas.
+    </p>
+</div>
+<div class="grid">
+    <div class="col-6">
+        <p-card>
+            <ul>
+                <li class="mb-2">fecha</li>
+                <li class="mb-2">fecha | date</li>
+                <li class="mb-2">fecha | 'short'</li>
+                <li class="mb-2">fecha | date: 'medium' </li>
+                <li class="mb-2">fecha | date: 'long' </li>
+                <li class="mb-2">fecha | date: 'fullDate' </li>
+                <li class="mb-2">fecha | date: 'shortTime' </li>
+                <li class="mb-2">fecha | date: 'mediumTime' </li>
+                <li class="mb-2">fecha | date: 'cccc, dd/MMMM/yyyy - hh:mm:ss aa' </li>
+            </ul>
+            <hr class="border-400 w-11">
+            <ul>
+                <li class="mb-2">fecha | date: 'long':'GMT-6'</li>
+                <li class="mb-2">fecha | date: 'long':'GMT-4'</li>
+                <li class="mb-2">fecha | date: 'long':'GMT-4':'en'</li>
+                <li class="mb-2">fecha | date: 'long':'GMT-4':'fr'</li>
+            </ul>
+        </p-card>
+    </div>
+    <div class="col-6">
+        <p-card>
+            <ul>
+                <li class="mb-2">{{ fecha }}</li>
+                <li class="mb-2">{{ fecha | date }}</li>
+                <li class="mb-2">{{ fecha | date: 'short' }}</li>
+                <li class="mb-2">{{ fecha | date: 'medium' }}</li>
+                <li class="mb-2">{{ fecha | date: 'long' }}</li>
+                <li class="mb-2">{{ fecha | date: 'fullDate' }}</li>
+                <li class="mb-2">{{ fecha | date: 'shortTime' }}</li>
+                <li class="mb-2">{{ fecha | date: 'mediumTime' }}</li>
+                <li class="mb-2">{{ fecha | date: 'cccc, dd/MMMM/yyyy - hh:mm:ss aa' }}</li>
+            </ul>
+            <hr class="border-400 w-11">
+            <ul>
+                <li class="mb-2">{{ fecha | date: 'long':'GMT-6' }}</li>
+                <li class="mb-2">{{ fecha | date: 'long':'GMT-4' }}</li>
+                <li class="mb-2">{{ fecha | date: 'long':'GMT-4':'en' }}</li>
+                <li class="mb-2">{{ fecha | date: 'long':'GMT-4':'fr' }}</li>
+            </ul>
+        </p-card>
+    </div>
+</div>

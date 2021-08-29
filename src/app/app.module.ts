@@ -1,11 +1,19 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRouterModule } from './app-router.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedModule } from './shared/shared.module';
+import { VentasModule } from './ventas/ventas.module';
 
+// Combiar el Locale del App
+import localEsMX from "@angular/common/locales/es-MX";
+import localFr from "@angular/common/locales/fr";
+import { registerLocaleData } from "@angular/common";
+registerLocaleData( localEsMX );
+registerLocaleData( localFr );
 
 @NgModule({
   declarations: [
@@ -13,10 +21,14 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRouterModule,
-    SharedModule
+    SharedModule,
+    VentasModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue:'es-MX' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

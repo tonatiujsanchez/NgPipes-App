@@ -1,1 +1,72 @@
-<p>no-comunes works!</p>
+<div class="text-layout mt-5">
+    <h2 class="text-4xl">Pipes - No tan comunes</h2>
+    <p>
+        Pipes de angular no tan comunes.
+    </p>
+</div>
+
+<div class="grid">
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="i18nSelectPipe" [toggleable]="true">
+            <p *ngFor="let empleado of empleados">
+                Saludos {{ empleado.nombre }}, es un placer 
+               {{ empleado.genero | i18nSelect: saludoOptions}}.
+            </p>
+        </p-fieldset>
+    </div>
+
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="i18nPluralPipe" [toggleable]="true">
+            <p>Actualmente {{ clientes.length | i18nPlural:clinetesOption}} </p>
+            <button pButton  class="p-button-secondary" 
+                    label="Atender cliente" 
+                    (click)="borrarCliente()">
+            </button>
+        </p-fieldset>
+    </div>
+
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="SlicePipe" [toggleable]="true">
+            <strong>Arr original</strong>
+            <pre>{{ clientes }}</pre>
+
+            <strong>Arr | slice:1:3</strong>
+            <pre>{{ clientes | slice:1:3 }}</pre>
+
+            <strong>string | slice:1:5</strong>
+            <pre>{{ empleados[0].nombre | slice:1:5 }}</pre>
+        </p-fieldset>
+    </div>
+
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="JsonPipe" [toggleable]="true">
+            <strong>Arr Heroes:</strong>
+            <pre class="mb-6">{{ heroes | json }}</pre>
+        </p-fieldset>
+    </div>
+
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="KeyValuePipe" [toggleable]="true">
+            <ul>
+                <li *ngFor="let item of persona | keyvalue">
+                    <strong>{{ item.key | titlecase}} : </strong> {{ item.value }}
+                </li>
+            </ul>
+            <button pButton  class="p-button-secondary" 
+                    label="Update Name" 
+                    (click)="updateName()">
+            </button>
+
+        </p-fieldset>
+    </div>
+
+
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="AsyncPipe" [toggleable]="true">
+            <!-- <pre>Mi observable: {{ miObservable | async }}</pre> -->
+
+            <pre *ngIf="!(valorPromesa | async)">Resoviendo Promise...</pre>
+            <pre> {{ valorPromesa | async }}</pre>
+        </p-fieldset>
+    </div>
+</div>
