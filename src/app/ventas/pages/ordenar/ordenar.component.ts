@@ -10,6 +10,11 @@ import { Heroe, Color } from '../../interfaces/ventas.interface';
 export class OrdenarComponent {
 
   enMayusculas: boolean = false;
+  
+  toggleMayusculas(){
+    this.enMayusculas = !this.enMayusculas;
+  }
+
 
   heroes: Heroe[] = [
     {
@@ -25,7 +30,7 @@ export class OrdenarComponent {
     {
       nombre: 'Wonder Woman',
       vuela: true,
-      color: Color.azul
+      color: Color.rojo
     },
     {
       nombre: 'Flash',
@@ -65,17 +70,17 @@ export class OrdenarComponent {
   ];
 
   colorOptions = {
-    '0': 'Rojo',
+    '0': 'Azul',
     '1': 'Negro',
-    '2': 'Azul',
+    '2': 'Rojo',
     '3': 'Verde'
   }
 
 
+  ordenarPor: string = 'sin valor';
 
-
-  toggleMayusculas(){
-    this.enMayusculas = !this.enMayusculas;
+  selectOrder( valor: string ){
+    this.ordenarPor = valor;
   }
 
 }

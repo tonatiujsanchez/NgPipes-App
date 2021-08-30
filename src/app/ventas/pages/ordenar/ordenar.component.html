@@ -9,7 +9,7 @@
 
 <p-toolbar>
     <div class="p-toolbar-group-left">
-
+        <h3 class="text-layout">Pipes personalizados</h3>
 
     </div>
     
@@ -17,29 +17,61 @@
         <button pButton
                 icon="pi pi-sort"
                 label="Por nombre"
-                class="mr-2">
+                class="mr-2"
+                (click)="selectOrder('nombre')">
         </button>
         <button pButton
                 icon="pi pi-sort"
-                label="Valores"
-                class="p-button-success mr-1">
+                label="Vuela"
+                class="p-button-success mr-1"
+                (click)="selectOrder('vuela')">
         </button>
         <button pButton
                 icon="pi pi-sort"
                 label="Por Color"
-                class="p-button-danger mr-1">
+                class="p-button-danger mr-1"
+                (click)="selectOrder('color')">
         </button>
     </div>
 </p-toolbar>
 
 <div class="grid">
-    <div class="col mt-2">
-        <p-table [value]="heroes" responsiveLayout="scroll">
+    <div class="col mt-2 mb-5">
+        <p-table [value]="heroes | ordenar: ordenarPor" responsiveLayout="scroll">
             <ng-template pTemplate="header">
                 <tr>
                     <th>Nombre</th>
                     <th>Vuela</th>
                     <th>Color</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-heroe>
+                <tr>
+                    <td>{{heroe.nombre}}</td>
+                    <td>{{heroe.vuela | vuela | titlecase}}</td>
+                    <td>{{heroe.color.toString() | i18nSelect: colorOptions }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<p-toolbar>
+    <div class="p-toolbar-group-left">
+        <h3 class="text-layout">Tlaba de PrimeNG</h3>
+    </div>
+    
+    <div class="p-toolbar-group-right">
+    </div>
+</p-toolbar>
+<div class="grid">
+    <div class="col mt-2">
+        <p-table [value]="heroes | slice: 0" responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
+                    <th pSortableColumn="vuela">Vuela <p-sortIcon field="vuela"></p-sortIcon></th>
+                    <th pSortableColumn="color">Color <p-sortIcon field="color"></p-sortIcon></th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-heroe>

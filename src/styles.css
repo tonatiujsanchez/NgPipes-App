@@ -4,6 +4,9 @@ html, body{
     background-color: var(--surface-b);
     font-family: var(--font-family);
 }
+h3{
+    margin: 0;
+}
 .text-layout {
     color: var(--text-color);
 }
